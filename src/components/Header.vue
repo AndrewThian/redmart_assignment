@@ -33,10 +33,27 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data () {
     return {
       dropDownOpen: false
+    }
+  },
+  methods: {
+    ...mapActions({
+      fetchData: 'loadData'
+    }),
+    loadData () {
+      console.log('load data')
+      this.fetchData()
+    },
+    saveData () {
+      const data = {
+        contacts: this.$store.getters.getContacts
+      }
+      this.$http.put('data.json', data)
     }
   }
 }

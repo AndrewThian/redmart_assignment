@@ -13,7 +13,7 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th>Name</th>
+            <th @click="orderName">Name</th>
             <th>Email</th>
             <th>Number</th>
           </tr>
@@ -68,6 +68,15 @@ export default {
     filteredContacts () {
       return this.contacts.filter(contact => {
         return contact.name.toLowerCase().includes(this.searchParams.toLowerCase())
+      })
+    }
+  },
+  methods: {
+    orderName () {
+      return this.contacts.sort((a, b) => {
+        if (a.name < b.name) return -1
+        if (a.name > b.name) return 1
+        return 0
       })
     }
   }

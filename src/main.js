@@ -3,8 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import VueResource from 'vue-resource'
 import store from './store/store'
+
+Vue.use(VueResource)
+
+Vue.http.options.root = 'https://contact-manager-fd31f.firebaseio.com/'
 
 Vue.config.productionTip = false
 

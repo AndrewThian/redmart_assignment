@@ -36,5 +36,8 @@
   }
 </script>
 
-<style lang="css">
+<style scoped>
+p {
+  width: 308px;
+}
 </style>
