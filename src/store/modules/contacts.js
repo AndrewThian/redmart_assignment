@@ -1,5 +1,6 @@
 import contacts from '../../data/contacts'
 import uuid from 'uuid'
+import Vue from 'vue'
 
 const state = {
   contacts: []
@@ -40,6 +41,18 @@ const actions = {
   },
   deleteContact: ({ commit, state }, contactId) => {
     commit('DELETE_CONTACT', contactId)
+  },
+  loadData: ({ commit }) => {
+    console.log('beginning to commit data into database...')
+    Vue.http.get('data.json')
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          const contacts = data.contacts
+          commit('SET_CONTACTS', contacts)
+        }
+      }
+    )
   }
 }
 

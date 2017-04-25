@@ -13,8 +13,8 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th @click="orderName">Name</th>
-            <th>Email</th>
+            <th @click="orderName"><b>Name</b> <i class="fa fa-fw fa-sort"></i></th>
+            <th @click="orderEmail"><b>Email</b> <i class="fa fa-fw fa-sort"></i></th>
             <th>Number</th>
           </tr>
         </thead>
@@ -30,7 +30,12 @@
     <hr>
     <div class="container-fluid">
       <h3>Functionality: </h3>
-      <p>You can search for contacts, vuex for managing stored data, firebase for saving data and simple usage of vue-router. Finally, deployed on AWS S3 servers as single page app.</p>
+      <p>Here are some of the core functionality in the app!</p>
+      <ul>
+        <li>Search for names</li>
+        <li>Filter by alphabetical order (name, email)</li>
+        <li>save data / load data</li>
+      </ul>
       <p>Basic CRUD functionality:</p>
       <ul>
         <li>Add</li>
@@ -58,7 +63,8 @@ import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      searchParams: ''
+      searchParams: '',
+      sortOrder: false
     }
   },
   computed: {
@@ -73,11 +79,36 @@ export default {
   },
   methods: {
     orderName () {
-      return this.contacts.sort((a, b) => {
-        if (a.name < b.name) return -1
-        if (a.name > b.name) return 1
-        return 0
-      })
+      this.sortOrder = !this.sortOrder
+      if (this.sortOrder) {
+        return this.contacts.sort((a, b) => {
+          if (a.name < b.name) return -1
+          if (a.name > b.name) return 1
+          return 0
+        })
+      } else {
+        return this.contacts.sort((a, b) => {
+          if (a.name < b.name) return 1
+          if (a.name > b.name) return -1
+          return 0
+        })
+      }
+    },
+    orderEmail () {
+      this.sortOrder = !this.sortOrder
+      if (this.sortOrder) {
+        return this.contacts.sort((a, b) => {
+          if (a.email < b.email) return -1
+          if (a.email > b.email) return 1
+          return 0
+        })
+      } else {
+        return this.contacts.sort((a, b) => {
+          if (a.email < b.email) return 1
+          if (a.email > b.email) return -1
+          return 0
+        })
+      }
     }
   }
 }

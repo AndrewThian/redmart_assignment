@@ -10,14 +10,24 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Header from './components/Header.vue'
 
 export default {
   components: {
     appHeader: Header
   },
+  methods: {
+    ...mapActions({
+      fetchData: 'loadData'
+    }),
+    loadData () {
+      this.fetchData()
+    }
+  },
   created () {
     this.$store.dispatch('initContacts')
+    this.loadData()
   }
 }
 </script>
