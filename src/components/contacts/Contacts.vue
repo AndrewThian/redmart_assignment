@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import uuid from 'uuid'
 import Contact from './Contact.vue'
 import SaveContactForm from './SaveContactForm.vue'
 
@@ -36,27 +37,30 @@ export default {
   data () {
     return {
       contactInForm: {
+        id: null,
         name: '',
         number: null,
         email: ''
       },
       contacts: [
-        { name: 'Andrew Thian', email: 'andrew@gmail.com', number: 91234567 },
-        { name: 'John Doe', email: 'john@gmail.com', number: 91234567 },
-        { name: 'Jane Doe', email: 'jane@gmail.com', number: 91234567 },
-        { name: 'Jean Grey', email: 'jean@gmail.com', number: 91234567 },
-        { name: 'Scott Summers', email: 'scott@gmail.com', number: 91234567 }
+        { id: 'cc919e21-ae5b-5e1f-d023-c40ee669520c', name: 'Andrew Thian', email: 'andrew@gmail.com', number: 91234567 },
+        { id: 'bcd755a6-9a19-94e1-0a5d-426c0303454f', name: 'John Doe', email: 'john@gmail.com', number: 91234567 },
+        { id: '727026b7-7f2f-c5a0-ace9-cc227e686b8e', name: 'Jane Doe', email: 'jane@gmail.com', number: 91234567 },
+        { id: '727026b7-7f2f-c5a0-ace9-cc217e415b8e', name: 'Jean Grey', email: 'jean@gmail.com', number: 91234567 },
+        { id: '727026b7-7f2f-c5a0-ace9-cd227e612b8e', name: 'Scott Summers', email: 'scott@gmail.com', number: 91234567 }
       ],
       searchParams: ''
     }
   },
   methods: {
     onFormSave (contact) {
-      const numberIndex = this.contacts.findIndex(c => c.number === contact.number)
+      const index = this.contacts.findIndex(c => c.id === contact.id)
       // checking if contact is unique in contacts array
-      if (numberIndex !== -1) {
-        this.contacts.splice(numberIndex, 1, contact)
+      if (index !== -1) {
+        this.contacts.splice(index, 1, contact)
       } else {
+        // set id before saving
+        contact.id = uuid.v4()
         this.contacts.push(contact)
       }
       // clear contact form
@@ -73,10 +77,10 @@ export default {
       this.contactInForm = { ...contact }
     },
     onRemoveClicked (contact) {
-      const numberIndex = this.contacts.findIndex(c => c.number === contact.number)
-      this.contacts.splice(numberIndex, 1)
+      const index = this.contacts.findIndex(c => c.id === contact.id)
+      this.contacts.splice(index, 1)
       // reset form if current contact is removed
-      if (contact.number === this.contactInForm.number) { this.resetContactInForm() }
+      if (contact.id === this.contactInForm.id) { this.resetContactInForm() }
     }
   },
   computed: {

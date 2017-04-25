@@ -35,7 +35,7 @@
     <button
       type="submit"
       v-on:click.prevent="onSubmit"
-      class="btn btn-primary">Save</button>
+      class="btn btn-primary">{{ contact.id ? 'Update' : 'Add' }}</button>
     <button
       type="submit"
       v-on:click.prevent="onCancel"
@@ -53,7 +53,7 @@ export default {
     }
   },
   created () {
-    this.$watch('contact.number', () => {
+    this.$watch('contact.id', () => {
       this.formErrors = {}
     })
   },
