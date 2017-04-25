@@ -3,13 +3,17 @@
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">
-          CONTACT NAME
+          {{ contact.name }}
         </h3>
       </div>
       <div class="panel-body">
         <div class="pull-left">
-          <p>CONTACT EMAIL</p>
-          <p>CONTACT NUMBER</p>
+          <p>Email: {{ contact.email }}</p>
+          <p>Number: {{ contact.number }}</p>
+        </div>
+        <div class="pull-right">
+          <button class="btn btn-sm btn-warning">Edit</button>
+          <button class="btn btn-sm btn-danger">Delete</button>
         </div>
       </div>
     </div>
@@ -17,8 +21,9 @@
 </template>
 
 <script>
-export default {
-}
+  export default {
+    props: ['contact']
+  }
 </script>
 
 <style lang="css">
