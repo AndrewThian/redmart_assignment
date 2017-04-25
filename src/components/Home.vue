@@ -78,6 +78,7 @@ export default {
     }
   },
   methods: {
+    // TODO: REFACTOR THIS CRAP
     orderName () {
       this.sortOrder = !this.sortOrder
       if (this.sortOrder) {
