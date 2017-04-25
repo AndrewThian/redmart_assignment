@@ -14,6 +14,7 @@
         :contact="contact"
         :key="contact.number"
         v-on:edit="onEditClicked"
+        v-on:remove="onRemoveClicked"
         ></app-contact>
         <hr>
     </div>
@@ -51,11 +52,10 @@ export default {
   },
   methods: {
     onFormSave (contact) {
-      console.log('contact saved')
-      const emailIndex = this.contacts.findIndex(c => c.email === contact.email)
+      const numberIndex = this.contacts.findIndex(c => c.number === contact.number)
       // checking if contact is unique in contacts array
-      if (emailIndex !== -1) {
-        this.contacts.splice(emailIndex, 1, contact)
+      if (numberIndex !== -1) {
+        this.contacts.splice(numberIndex, 1, contact)
       } else {
         this.contacts.push(contact)
       }
@@ -71,6 +71,12 @@ export default {
     },
     onEditClicked (contact) {
       this.contactInForm = { ...contact }
+    },
+    onRemoveClicked (contact) {
+      const numberIndex = this.contacts.findIndex(c => c.number === contact.number)
+      this.contacts.splice(numberIndex, 1)
+      // reset form if current contact is removed
+      if (contact.number === this.contactInForm.number) { this.resetContactInForm() }
     }
   },
   computed: {

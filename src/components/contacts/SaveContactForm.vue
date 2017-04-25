@@ -35,7 +35,7 @@
     <button
       type="submit"
       v-on:click.prevent="onSubmit"
-      class="btn btn-primary">{{ !contact.number ? 'Save Contact' : 'Save Edit' }}</button>
+      class="btn btn-primary">Save</button>
     <button
       type="submit"
       v-on:click.prevent="onCancel"

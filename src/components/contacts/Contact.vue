@@ -13,7 +13,7 @@
         </div>
         <div class="pull-right">
           <button class="btn btn-sm btn-warning" @click="onEdit(contact)">Edit</button>
-          <button class="btn btn-sm btn-danger">Delete</button>
+          <button class="btn btn-sm btn-danger" @click="onRemove(contact)">Delete</button>
         </div>
       </div>
     </div>
@@ -27,6 +27,10 @@
       onEdit (contact) {
         console.log('edit form')
         this.$emit('edit', contact)
+      },
+      onRemove (contact) {
+        console.log('remove contact')
+        this.$emit('remove', contact)
       }
     }
   }
