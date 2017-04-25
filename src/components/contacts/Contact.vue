@@ -12,7 +12,7 @@
           <p>Number: {{ contact.number }}</p>
         </div>
         <div class="pull-right">
-          <button class="btn btn-sm btn-warning">Edit</button>
+          <button class="btn btn-sm btn-warning" @click="onEdit(contact)">Edit</button>
           <button class="btn btn-sm btn-danger">Delete</button>
         </div>
       </div>
@@ -22,7 +22,13 @@
 
 <script>
   export default {
-    props: ['contact']
+    props: ['contact'],
+    methods: {
+      onEdit (contact) {
+        console.log('edit form')
+        this.$emit('edit', contact)
+      }
+    }
   }
 </script>
 
