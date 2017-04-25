@@ -31,3 +31,10 @@ npm run e2e
 # run all tests
 npm test
 ```
+## Build with
+
+* Webpack + Vue CLI
+* Vuex - state management
+* VueRouter - routes and history
+* VueResource - HTTP requests
+* Bootstrap for styling
