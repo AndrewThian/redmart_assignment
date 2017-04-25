@@ -1,6 +1,11 @@
 # contact-manager
 
-> A Vue.js project
+Simple contact manager built with VueJS (vuex, vuerouter and vueresource). With Firebase as a simple database to store persistent data. Depolyed [here] on S3 amazon web services. Features include:
+
+* CRUD Actions for contacts
+* search filter for contacts
+* order contacts via name or email
+* persisting data on a database
 
 ## Build Setup
 
@@ -26,5 +31,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

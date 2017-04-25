@@ -44,16 +44,6 @@
       </ul>
     </div>
     <hr>
-    <div class="container-fluid">
-      <h3>Tests: </h3>
-      <p>Simple test with Karma and Nightwatch for e2e testing</p>
-      <p>Test suite covers:</p>
-      <ul>
-        <li>CRUD functionality with vuex</li>
-        <li>Testing save feature with firebase</li>
-        <li>Search function testing</li>
-      </ul>
-    </div>
   </div>
 </template>
 
