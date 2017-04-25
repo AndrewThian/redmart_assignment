@@ -12,7 +12,7 @@
       <app-contact
         v-for="contact in filteredContacts"
         :contact="contact"
-        :key="contact.email"
+        :key="contact.number"
         v-on:edit="onEditClicked"
         ></app-contact>
         <hr>
