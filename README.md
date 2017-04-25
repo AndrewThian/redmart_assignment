@@ -1,6 +1,6 @@
 # contact-manager
 
-Simple contact manager built with VueJS (vuex, vuerouter and vueresource). With Firebase as a simple database to store persistent data. Depolyed [here] on S3 amazon web services. Features include:
+Simple contact manager built with VueJS (vuex, vuerouter and vueresource). With Firebase as a simple database to store persistent data. Depolyed [here](http://contact-manager-deploy.s3-website-ap-southeast-1.amazonaws.com/) on S3 amazon web services. Features include:
 
 * CRUD Actions for contacts
 * search filter for contacts
